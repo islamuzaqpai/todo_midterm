@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Custom Styles === */
+
+body {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800 min-h-screen antialiased;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Контейнер */
+.container {
+    @apply max-w-5xl mx-auto px-6 py-10;
+}
+
+/* === Заголовки === */
+h1 {
+    @apply text-4xl font-extrabold text-center mb-8 text-blue-600 tracking-tight;
+}
+
+/* === Карточки задач === */
+.task-card {
+    @apply bg-white/90 backdrop-blur-md border border-gray-100 rounded-2xl p-4 shadow-sm
+    flex justify-between items-start gap-4
+    hover:shadow-md hover:-translate-y-0.5 transition-all duration-200;
+}
+
+/* === Кнопки === */
+.btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 active:scale-95;
+}
+
+.btn-primary {
+    @apply bg-blue-500 text-white hover:bg-blue-600 shadow-md;
+}
+
+.btn-danger {
+    @apply bg-red-500 text-white hover:bg-red-600 shadow-md;
+}
+
+.btn-update {
+    @apply bg-green-500 text-white hover:bg-green-600 shadow-md;
+}
+
+.btn-secondary {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+}
+
+/* === Инпуты и текстовые поля === */
+.input {
+    @apply border border-gray-300 rounded-lg px-4 py-2 w-full text-gray-700
+    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition;
+}
+
+/* === Эффекты === */
+.fade-in {
+    @apply animate-fadeIn;
+}
+
+/* === Tailwind custom animation === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes bounceCheck {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.animate-bounce-check {
+    animation: bounceCheck 0.3s ease-in-out;
+}
+
