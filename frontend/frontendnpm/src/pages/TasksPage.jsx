@@ -122,7 +122,6 @@ export default function TaskPage() {
                         Today’s Tasks
                     </h1>
 
-                    {/* Кнопка выбора месяца по центру */}
                     <div className="flex justify-center w-full sm:w-auto">
                         <button
                             onClick={() => setMonthModalOpen(true)}
@@ -132,7 +131,6 @@ export default function TaskPage() {
                         </button>
                     </div>
 
-                    {/* Кнопка добавления новой задачи */}
                     <button
                         onClick={() => {
                             setShowForm(true);
@@ -144,7 +142,7 @@ export default function TaskPage() {
                     </button>
                 </header>
 
-                {/* Календарь */}
+
                 <TasksCalendar
                     tasks={tasks}
                     selectedDate={selectedDate}
@@ -152,7 +150,6 @@ export default function TaskPage() {
                     currentMonth={currentMonth}
                 />
 
-                {/* Список задач */}
                 {loading ? (
                     <p className="text-center text-gray-500 mt-6 animate-pulse">
                         ⏳ Загружаем задачи...
@@ -166,13 +163,12 @@ export default function TaskPage() {
                     />
                 )}
 
-                {/* Модалки */}
+
                 <ConfirmModal
                     isOpen={deleteModalOpen}
-                    title="Удаление задачи"
                     message={`Вы уверены, что хотите удалить "${taskToDelete?.title}"?`}
                     onConfirm={handleConfirmDelete}
-                    onCancel={() => setDeleteModalOpen(false)}
+                    onClose={() => setDeleteModalOpen(false)}
                 />
 
                 <MonthPickerModal
