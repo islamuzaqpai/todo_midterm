@@ -3,9 +3,9 @@ export default function TaskItem({ task, onToggle, onDelete, onEdit }) {
 
     return (
         <div
-            className={`task-card transition-all duration-300 ${
-                task.completed ? "bg-green-200 border-green-500 shadow-lg" : ""
-            }`}
+            className={`task-card transition-all duration-300 p-4 flex justify-between items-center ${
+                task.completed ? "bg-green-200 border-green-500 shadow-lg" : "bg-white"
+            } rounded-xl`}
         >
             <div className="flex-1">
                 <h3
@@ -30,24 +30,23 @@ export default function TaskItem({ task, onToggle, onDelete, onEdit }) {
                     />
                     <span
                         className={`absolute inset-0 rounded-md border-2 flex items-center justify-center transition-all duration-300
-              ${
-                            task.completed
-                                ? "bg-green-500 border-green-600 scale-110 animate-bounce-check"
-                                : "bg-white border-gray-300"
+                            ${task.completed
+                            ? "bg-green-500 border-green-600 scale-110 animate-bounce-check"
+                            : "bg-white border-gray-300"
                         }`}
                     >
-            {task.completed && (
-                <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    viewBox="0 0 24 24"
-                >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-            )}
-          </span>
+                        {task.completed && (
+                            <svg
+                                className="w-4 h-4 text-white"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="3"
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        )}
+                    </span>
                 </label>
 
                 {/* Edit */}
@@ -61,7 +60,7 @@ export default function TaskItem({ task, onToggle, onDelete, onEdit }) {
 
                 {/* Delete */}
                 <button
-                    onClick={() => onDelete(task.id)}
+                    onClick={() => onDelete(task)}
                     className="px-3 py-1 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition"
                     title="Удалить"
                 >

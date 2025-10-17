@@ -14,7 +14,12 @@ export default function TaskList({ tasks, onToggle, onDelete, onEdit }) {
         <ul className="divide-y divide-gray-200 bg-white rounded-2xl shadow-md overflow-hidden">
             {tasks.map((task) => (
                 <li key={task.id} className="hover:bg-gray-50 transition-colors">
-                    <TaskItem task={task} onToggle={onToggle} onDelete={onDelete} onEdit={onEdit} />
+                    <TaskItem
+                        task={task}
+                        onToggle={onToggle}
+                        onDelete={() => onDelete(task)}
+                        onEdit={onEdit}
+                    />
                 </li>
             ))}
         </ul>

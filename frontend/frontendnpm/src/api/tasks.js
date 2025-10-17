@@ -35,7 +35,7 @@ export async function toggleTaskCompleted(task) {
     const res = await fetch(`${API_URL}/${task.id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ task }),
+        body: JSON.stringify({ completed: !task.completed }),
     });
 
     if (!res.ok) throw new Error("Failed to toggle completed");
