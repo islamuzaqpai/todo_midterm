@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 
 function toInputDate(value) {
     if (!value) return "";
-    // Если приходит ISO (2025-10-11T00:00:00Z) — берем YYYY-MM-DD
     if (typeof value === "string" && value.includes("T")) return value.slice(0, 10);
-    return value; // уже YYYY-MM-DD
+    return value;
 }
 
 export default function TaskForm({ onAdd, onUpdate, editingTask, onCancel }) {
@@ -24,7 +23,6 @@ export default function TaskForm({ onAdd, onUpdate, editingTask, onCancel }) {
 
     const formatForBackend = (dateStr) => {
         if (!dateStr) return null;
-        // преобразуем YYYY-MM-DD -> ISO
         const d = new Date(dateStr);
         return d.toISOString();
     };
@@ -37,7 +35,6 @@ export default function TaskForm({ onAdd, onUpdate, editingTask, onCancel }) {
             title: form.title,
             description: form.description || "",
             deadline: form.deadline ? formatForBackend(form.deadline) : null,
-            // не трогаем completed здесь — бэк сам оставит либо default либо текущее значение
         };
 
         if (editingTask) {
@@ -46,7 +43,6 @@ export default function TaskForm({ onAdd, onUpdate, editingTask, onCancel }) {
             onAdd(payload);
         }
 
-        // сбрасываем/закрываем форму только если не в режиме редактирования
         if (!editingTask) {
             setForm({ title: "", description: "", deadline: "" });
         }

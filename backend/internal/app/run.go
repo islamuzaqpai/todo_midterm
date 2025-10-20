@@ -40,7 +40,7 @@ func Run() {
 	router.DELETE("/task/:id", h.DeleteTask)
 	router.PATCH("/task/:id", h.ToggleTaskCompleted)
 
-	err = router.Run("localhost:8080")
+	err = router.Run(":8080")
 	if err != nil {
 		log.Fatalf("Failed to run: %v", err)
 	}

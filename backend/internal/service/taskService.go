@@ -46,7 +46,7 @@ func (s *TaskService) UpdateTask(id int, newTask *models.Task) error {
 }
 
 func (s *TaskService) DeleteTask(id int) error {
-	err := s.DeleteTask(id)
+	err := s.Repo.DeleteTask(id)
 
 	if err != nil {
 		return fmt.Errorf("failed to delete task: %w", err)
